@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="951bc51f-982d-49bd-9b5f-5715f8778ad4" name="Changes" comment="" />
+    <list default="true" id="05e30d4b-8f61-4fb1-85f1-a2ea7a05ce9f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1y0vW5kOXKsg8G0xr8XBe0UcvpP" />
+  <component name="ProjectId" id="1y0wtrnqWL61aMO51fTCjMWGVEN" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -19,18 +26,30 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Teste" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Teste" />
+      <module name="ChatMulticast" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Teste" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="951bc51f-982d-49bd-9b5f-5715f8778ad4" name="Changes" comment="" />
-      <created>1631401348404</created>
+      <changelist id="05e30d4b-8f61-4fb1-85f1-a2ea7a05ce9f" name="Changes" comment="" />
+      <created>1631402031089</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1631401348404</updated>
-      <workItem from="1631401350836" duration="33000" />
-      <workItem from="1631401475229" duration="10000" />
+      <updated>1631402031089</updated>
+      <workItem from="1631402033476" duration="50000" />
     </task>
     <servers />
   </component>
