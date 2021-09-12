@@ -19,6 +19,7 @@ public class SerializeConversor <S extends Serializable> {
     }
 
     public S deserialize (byte[] object) {
+
        try {
            ByteArrayInputStream input = new ByteArrayInputStream(object);
            ObjectInputStream inputStream = new ObjectInputStream(input);
@@ -27,6 +28,7 @@ public class SerializeConversor <S extends Serializable> {
        } catch (Exception e) {
            return null;
        }
+
     }
 
 }

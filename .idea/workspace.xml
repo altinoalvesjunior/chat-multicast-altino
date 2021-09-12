@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="05e30d4b-8f61-4fb1-85f1-a2ea7a05ce9f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/network/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/network/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/network/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/network/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/network/SerializeConversor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/network/SerializeConversor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +57,7 @@
       <option name="presentableId" value="Default" />
       <updated>1631402031089</updated>
       <workItem from="1631402033476" duration="5257000" />
-      <workItem from="1631445179466" duration="196000" />
+      <workItem from="1631445179466" duration="4814000" />
     </task>
     <servers />
   </component>
