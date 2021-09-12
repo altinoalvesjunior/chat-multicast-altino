@@ -3,9 +3,7 @@ package network;
 import java.io.Serializable;
 import java.io.IOException;
 import java.net.InetAddress;
-
 import java.net.DatagramPacket;
-
 import java.net.MulticastSocket;
 import java.util.ArrayList;
 import java.util.List;
@@ -81,7 +79,6 @@ public class Room implements Serializable {
                     System.out.println("Erro: " + e.getMessage());
                 }
             }
-            // colocar uma mensagem de parar chat
         }).start();
     }
 
