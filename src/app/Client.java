@@ -91,6 +91,7 @@ public class Client {
 
             case LIST_ROOMS:
                 List<Room> available = serverResponse.getRoomList();
+
                 System.out.println("--- Salas disponíveis ---");
                 System.out.println(available);
             break;
