@@ -3,13 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="05e30d4b-8f61-4fb1-85f1-a2ea7a05ce9f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatMulticast/Teste.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChatMulticast/app/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatMulticast/app/Client$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChatMulticast/app/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatMulticast/app/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChatMulticast/app/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatMulticast/app/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChatMulticast/configs/ConnectionConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatMulticast/configs/ConnectionConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChatMulticast/network/Commands.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatMulticast/network/Commands.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChatMulticast/network/Response.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatMulticast/network/Response.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/configs/ConnectionConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/configs/ConnectionConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enums/Codes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/Codes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/SerializeConversor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/network/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/network/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/network/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/network/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/network/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/network/Response.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +31,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1y0wtrnqWL61aMO51fTCjMWGVEN" />
   <component name="ProjectViewState">
@@ -89,7 +101,7 @@
       <option name="presentableId" value="Default" />
       <updated>1631402031089</updated>
       <workItem from="1631402033476" duration="5257000" />
-      <workItem from="1631445179466" duration="18676000" />
+      <workItem from="1631445179466" duration="22503000" />
     </task>
     <servers />
   </component>

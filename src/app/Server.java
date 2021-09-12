@@ -32,7 +32,7 @@ public class Server {
                 datagramSocket.receive(request);
 
                 message = new String(request.getData()).trim();
-                Response responseSerial = responseSerialMessage(request, message);
+                Response responseSerial = responseMessage(request, message);
                 System.out.println("Servidor:" + message);
 
                 byte[] serializedResponse = serverResponseSerializeConvert.serialize(responseSerial);
@@ -55,26 +55,6 @@ public class Server {
         byte[] buffer = new byte[100000];
         return (new DatagramPacket(buffer, buffer.length));
     }
-
-    private static boolean leaveRoom(String roomName, User user) {
-        for (Room r : rooms) {
-            if (r.getName().equals(roomName))
-                return r.remove(user);
-        }
-
-        return false;
-    }
-
-    private static Room joinRoom(String roomName, User user) {
-        for (Room r : rooms) {
-            if (r.getName().equals(roomName)) {
-                r.addNewUser(user);
-                return r;
-            }
-        }
-        return null;
-    }
-
     private static Room createRoom(String roomName, User user, String groupChatAdress) {
 
         try {
@@ -105,7 +85,26 @@ public class Server {
         }
     }
 
-    private static Response responseSerialMessage(DatagramPacket request, String input) {
+    private static Room joinRoom(String roomName, User user) {
+        for (Room r : rooms) {
+            if (r.getName().equals(roomName)) {
+                r.addNewUser(user);
+                return r;
+            }
+        }
+        return null;
+    }
+
+    private static boolean leaveRoom(String roomName, User user) {
+        for (Room r : rooms) {
+            if (r.getName().equals(roomName))
+                return r.remove(user);
+        }
+
+        return false;
+    }
+
+    private static Response responseMessage(DatagramPacket request, String input) {
 
         String[] commandSplit = input.split(" ", 2);
         String command = commandSplit[0];
@@ -129,23 +128,18 @@ public class Server {
                     Room chatRoom = createRoom(roomName,
                             new User(request.getAddress(), request.getPort(), username), address);
 
-                    if (chatRoom != null)
-                        return new Response(Codes.START_CHAT, chatRoom);
-                    else
-                        return new Response("Ops! Já existe uma sala com este nome ou endereço, tente novamente.");
+                    if (chatRoom != null) return new Response(Codes.START_CHAT, chatRoom);
+                    else return new Response("Ops! Já existe uma sala com este nome ou endereço, tente novamente.");
 
                 } else {
                     return new Response("Erro ao criar uma nova sala, tente novamente \n tente no seguinte formato: criar + nome da sala + endereço IP");
                 }
 
             case Commands.start:
-
                 if (param != null) {
                     String[] params = param.split(" ", 1);
 
-                    if (params.length != 1) {
-                        return new Response("Falha na conexão, tente novamente!");
-                    }
+                    if (params.length != 1) return new Response("Falha na conexão, tente novamente!");
 
                     String nickname = params[0];
 
@@ -165,17 +159,14 @@ public class Server {
                     String memberNick = params[1];
 
                     Room chatRoom = joinRoom(roomName, new User(request.getAddress(), request.getPort(), memberNick));
-                    if (chatRoom != null)
-                        return new Response(Codes.START_CHAT, chatRoom);
-                    else
-                        return new Response("ERRO: Sala não encontrada!");
+                    if (chatRoom != null)  return new Response(Codes.START_CHAT, chatRoom);
+                    else return new Response("ERRO: Sala não encontrada!");
 
                 } else {
                     return new Response("Falha ao ingressar na sala! \n Tente novamente no seguinte formato: entrar + nome da sala");
                 }
 
             case Commands.leave:
-
                 if (param != null) {
                     String[] params = param.split(" ", 2);
 
@@ -193,12 +184,20 @@ public class Server {
                     return new Response("Ops! Não foi possível sair da sala!");
                 }
 
-
             case Commands.allRooms:
                 return new Response(Codes.LIST_ROOMS, rooms);
 
             case Commands.end:
                 return new Response(Codes.END_CONNECTION, "Conexão finalizada!");
+
+            case Commands.help:
+                return new Response("Comandos: \n Criar uma nova sala - /criar + nome da sala + endereço IP (224.0. 0.0 até 239.255.255.255) " +
+                        "\n Listar salas disponíveis - /salas " +
+                        "\n Ingressar em uma sala - /ingressar + nome da sala" +
+                        "\n Sair de uma sala - /sair" +
+                        "\n Desconectar do servidor - /desconectar" +
+                        "\n Ver membros do chat - /membros" +
+                        "\n Ver comandos disponíveis - /ajuda");
 
             case Commands.members:
                 if (param != null) {
@@ -208,10 +207,9 @@ public class Server {
 
                     String roomName = params[0];
                     for (Room r : rooms) {
-                        if (r.getName().equals(roomName)) {
-                            return new Response(Codes.MEMBERS, r);
-                        }
+                        if (r.getName().equals(roomName)) return new Response(Codes.MEMBERS, r);
                     }
+
                     return new Response("Ops, essa sala não foi encontrada!");
                 } else {
                     return new Response("Não foi possível recuperar o membros da sala.");

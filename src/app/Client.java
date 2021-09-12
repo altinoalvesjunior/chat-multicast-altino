@@ -47,6 +47,8 @@ public class Client {
                 return;
             }
 
+            System.out.println();
+            System.out.println("Digite '/ajuda' para ver os comandos disponíveis");
             sc.nextLine();
             do {
                 System.out.print("\nComando: ");
@@ -77,33 +79,28 @@ public class Client {
             case START:
                 nickname = serverResponse.getUser();
                 System.out.println(serverResponse.getMessage());
-                break;
+            break;
 
             case START_CHAT:
-                startChatRoom();
-                break;
+                startChat();
+            break;
 
             case KEEP_CONNECTION:
                 System.out.println(serverResponse.getMessage());
-                break;
+            break;
 
             case LIST_ROOMS:
-                List<Room> availableRooms = serverResponse.getRoomList();
-
-                System.out.println("--- Salas Disponíveis ---");
-                System.out.println(availableRooms);
-                break;
+                List<Room> available = serverResponse.getRoomList();
+                System.out.println("--- Salas disponíveis ---");
+                System.out.println(available);
+            break;
 
             case MEMBERS:
                 Room room = serverResponse.getChatRoom();
 
                 System.out.println("On-line agora: " + room.getMembers());
                 System.out.println("-------------------------------");
-                break;
-
-            case HELP: {
-                System.out.println("Teste");
-            }
+           break;
 
             case END_CONNECTION:
 
@@ -125,7 +122,75 @@ public class Client {
             actions();
     }
 
-    private static void startChatRoom() {
-        
+    private static void startChat() {
+        try {
+            MulticastSocket multicastSocket = new MulticastSocket(7500);
+
+            boolean finish = false;
+
+            room = serverResponse.getChatRoom();
+            InetAddress multicastAddress = room.getAddress();
+
+            multicastSocket.joinGroup(multicastAddress);
+
+            System.out.println("-----------" + room.getName() + "-----------");
+            System.out.println();
+            System.out.println("-------------------------");
+            System.out.println("Pessoas on-line agora: " + room.getMembers());
+            System.out.println("-------------------------");
+
+            String message;
+            room.listenRoom(multicastSocket);
+
+            do {
+                message = sc.nextLine();
+                System.out.print("> ");
+
+                if (message.charAt(0) != '/') {
+                    byte[] bytes = chatMessageSerializeConvert.serialize(new Message(nickname, message));
+
+                    DatagramPacket output = new DatagramPacket(bytes, bytes.length, multicastAddress, 7500);
+                    multicastSocket.send(output);
+                }
+
+                else {
+                    String[] messageSplit = message.split(" ", 2);
+                    String commandSelected = messageSplit[0];
+
+                    switch (commandSelected) {
+
+                        case Commands.members:
+                            String getMembers = commandSelected + " " + room.getName();
+                            request = new DatagramPacket(getMembers.getBytes(), getMembers.length(), inetAddress, ConnectionConfig.PORT);
+                            sendMessagesServer();
+                        break;
+
+                        case Commands.leave:
+                            room.stopRoom();
+
+                            byte[] bytes = chatMessageSerializeConvert.serialize(new Message(nickname, "Desconectando!"));
+
+                            DatagramPacket messageOutput = new DatagramPacket(bytes, bytes.length, multicastAddress, ConnectionConfig.TESTE);
+
+                            multicastSocket.send(messageOutput);
+                            multicastSocket.leaveGroup(multicastAddress);
+
+                            String logoffCommand = commandSelected + " " + room.getName() + " " + username;
+                            request = new DatagramPacket(logoffCommand.getBytes(), logoffCommand.length(), inetAddress, ConnectionConfig.PORT);
+
+                            sendMessagesServer();
+                            finish = true;
+                        break;
+
+                        default:
+                            System.out.println("O comando digitado não existe, tente novamente!");
+                        break;
+                    }
+                }
+            } while (!(finish));
+
+        } catch (IOException e) {
+            System.out.println("ERRO: " + e.getMessage());
+        }
     }
 }
