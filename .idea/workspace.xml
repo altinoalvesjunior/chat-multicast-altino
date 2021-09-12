@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05e30d4b-8f61-4fb1-85f1-a2ea7a05ce9f" name="Changes" comment="" />
+    <list default="true" id="05e30d4b-8f61-4fb1-85f1-a2ea7a05ce9f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/network/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/network/Response.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,7 +54,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1631402031089</updated>
-      <workItem from="1631402033476" duration="5140000" />
+      <workItem from="1631402033476" duration="5257000" />
+      <workItem from="1631445179466" duration="196000" />
     </task>
     <servers />
   </component>
